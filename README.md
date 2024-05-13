@@ -12,17 +12,24 @@ For the current research, a dataset of all the utterances from the Providence co
 
 Utterances containing phonological fragments (e.g. &, #) or unintelligible speech (e.g., annotated as &, xx, or yy) were excluded from further analysis (see CHAT transcription convention in https://talkbank.org/manuals/CHAT.html).
 
+# Content
+- `calculate_opensmile_features.py`: Calculation of prosodic features by means of openSMILE.
+- `providence_correct_files.csv`: a list of Providence files used in the current research.
 
-# How to Use
+# Main dependencies
 
+- openSMILE (https://github.com/audeering/opensmile)
+- matplotlib
+- numpy
+- pandas
+- scipy
+- tqdm
 
-## Feature Extraction
+# Instructions
+The experimental data (speech and its transcripts) should be aligned. It could be done by means of Montreal Forced Aligner (https://github.com/MontrealCorpusTools/Montreal-Forced-Aligner) or online WebMAUS tool (https://clarin.phonetik.uni-muenchen.de/BASWebServices/interface/WebMAUSBasic).
 
+The prosodic features should be calculated using `calculate_opensmile_features.py`.
 
-## Statistical Analysis
-
-
-## Feature Plots
 
 
 
