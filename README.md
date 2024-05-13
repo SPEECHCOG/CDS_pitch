@@ -14,9 +14,9 @@ Utterances containing phonological fragments (e.g. &, #) or unintelligible speec
 
 # Content
 - `calculate_opensmile_features.py`: calculation of prosodic features by means of openSMILE.
-- `providence_files.csv`: a list of Providence files used in the current research.
 - `prosodic_analysis.py`: the main code for analysis of age-dependent speech melody.
 - `annotation_utils.py`: classes for processing Praat annotation.
+- `providence_files.csv`: a list of Providence files used in the current research.
 
 # Main dependencies
 
