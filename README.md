@@ -13,8 +13,10 @@ For the current research, a dataset of all the utterances from the Providence co
 Utterances containing phonological fragments (e.g. &, #) or unintelligible speech (e.g., annotated as &, xx, or yy) were excluded from further analysis (see CHAT transcription convention in https://talkbank.org/manuals/CHAT.html).
 
 # Content
-- `calculate_opensmile_features.py`: Calculation of prosodic features by means of openSMILE.
-- `providence_correct_files.csv`: a list of Providence files used in the current research.
+- `calculate_opensmile_features.py`: calculation of prosodic features by means of openSMILE.
+- `providence_files.csv`: a list of Providence files used in the current research.
+- `prosodic_analysis.py`: the main code for analysis of age-dependent speech melody.
+- `annotation_utils.py`: classes for processing Praat annotation.
 
 # Main dependencies
 
@@ -30,6 +32,4 @@ The experimental data (speech and its transcripts) should be aligned. It could b
 
 The prosodic features should be calculated using `calculate_opensmile_features.py`.
 
-
-
-
+The feature extraction and statistical analysis is produced by `prosodic_analysis.py`. There are a number of parameters that might be specified, see description of command line parameters in the code.
