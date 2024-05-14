@@ -19,7 +19,7 @@ feature_levels = {'lowlevel': opensmile.FeatureLevel.LowLevelDescriptors,
 
 
 def parse_args(parser):
-    parser.add_argument("--data-dir", type=str, default=os.path.join('..', '..', 'Corpora', 'Providence'),
+    parser.add_argument("--data-dir", type=str, default=os.path.join('Corpora', 'Providence'),
                         help="Data directory.")
     return parser.parse_args()
 
