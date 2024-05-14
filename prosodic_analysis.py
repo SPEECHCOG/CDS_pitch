@@ -56,7 +56,7 @@ measurement_units = {
 
 def parse_args(parser):
     # Main parameters
-    parser.add_argument("--data-dir", type=str, default=os.path.join('..', '..', 'Corpora', 'Providence'), help="Data directory.")
+    parser.add_argument("--data-dir", type=str, default=os.path.join('Corpora', 'Providence'), help="Data directory.")
     parser.add_argument("--report-dir", type=str, default=os.path.join('report.12-42.lim.2'), help="Output directory.")
     parser.add_argument("--prosodic-features-file", type=str, default=os.path.join('prosodic_features.melody.txt'), help="Path to the file to save feature values.")
     parser.add_argument('--age-bounds-min', type=int, default=12, help="The lower bound for child age (in months).")
