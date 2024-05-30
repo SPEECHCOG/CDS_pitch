@@ -180,7 +180,7 @@ class Tier:
 
     @start_time.setter
     def start_time(self, other):
-        assert other < self._end_time, f'Start time {other} cannot be larger than an end time {self._end_time}'
+        assert self._end_time is None or other <= self._end_time, f'Start time {other} cannot be larger than an end time {self._end_time}'
         self._start_time = other
 
     @property
@@ -189,8 +189,8 @@ class Tier:
 
     @end_time.setter
     def end_time(self, other):
-        assert self._start_time < other, f'Start time {self._start_time} cannot be larger than an end time {other}'
-        self._start_time = other
+        assert self._start_time <= other, f'Start time {self._start_time} cannot be larger than an end time {other}'
+        self._end_time = other
 
     @property
     def name(self):
@@ -228,7 +228,10 @@ class PointTier(Tier):
 
     def add_point(self, point, overwrite=False):
         self.start_time = min(self.start_time, point.time)
-        self.end_time = max(self.end_time, point.time)
+        if self.end_time is None:
+            self.end_time = point.time
+        elif point.time is not None:
+            self.end_time = max(self.end_time, point.time)
         i = bisect_left(self._objects, point)
         if i < len(self._objects) and self._objects[i].time == point.time:
             if overwrite:
@@ -359,7 +362,10 @@ class IntervalTier(Tier):
 
     def add_interval(self, interval, overwrite=False):
         self.start_time = min(self.start_time, interval.start_time)
-        self.end_time = max(self.end_time, interval.end_time)
+        if self.end_time is None:
+            self.end_time = interval.end_time
+        elif interval.end_time is not None:
+            self.end_time = max(self.end_time, interval.end_time)
         i = bisect_left(self._objects, interval)
         if i != len(self._objects) and self[i] == interval:
             if overwrite:
@@ -487,7 +493,10 @@ class TextGrid(Tier):
 
     def append(self, tier):
         self.start_time = min(self.start_time, tier.start_time)
-        self.end_time = max(self.end_time, tier.end_time)
+        if self.end_time is None:
+            self.end_time = tier.end_time
+        elif tier.end_time is not None:
+            self.end_time = max(self.end_time, tier.end_time)
         self._objects.append(tier)
 
     def extend(self, tiers):
